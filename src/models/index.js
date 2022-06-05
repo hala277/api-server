@@ -3,6 +3,7 @@
 const {Sequelize, DataTypes} = require('sequelize');
 const  city = require('./city.model.js');
 const series = require('./series.model.js');
+const Products = require('./products.model');
 const Collection = require('./collection-class.js');
 // prepare the connection
 const POSTGRES_URL = process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
@@ -28,8 +29,12 @@ let cityCollect = new Collection(cityModel);
 let seriesModel = series(sequelize,DataTypes);
 let seriesCollect = new Collection(seriesModel);
 
+let productModel = Products(sequelize,DataTypes);
+let productCollect = new Collection(productModel);
+
 module.exports = {
   db: sequelize,  // for connection and to use this in index.js
   cityCollection:cityCollect, // for creat table and use this in routes
-  seriesCollection:seriesCollect
+  seriesCollection:seriesCollect,
+  productsCollection:productCollect
 }

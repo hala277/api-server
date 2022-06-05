@@ -7,6 +7,7 @@ const errorHandler = require('./error-handlers/500.js');
 const errorHandler2 = require('./error-handlers/404.js');
 const cityRoutes = require('./routes/city.route.js');
 const seriesRoutes = require('./routes/series.route.js');
+const productsRoutes = require('./routes/product.route');
 const app = express();
 
 app.use(express.json());
@@ -20,6 +21,9 @@ app.use(cityRoutes)
 
 // use series router
 app.use(seriesRoutes)
+
+// use productsRoutes
+app.use(productsRoutes)
 
 // http://localhost:3000/person?name= hala
 app.get('/person',validator,(request,response)=>{
