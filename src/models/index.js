@@ -3,7 +3,7 @@
 const {Sequelize, DataTypes} = require('sequelize');
 const  city = require('./city.model.js');
 const series = require('./series.model.js');
-const Products = require('./products.model');
+const products = require('./products.model');
 const Collection = require('./collection-class.js');
 // prepare the connection
 const POSTGRES_URL = process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
@@ -29,7 +29,7 @@ let cityCollect = new Collection(cityModel);
 let seriesModel = series(sequelize,DataTypes);
 let seriesCollect = new Collection(seriesModel);
 
-let productModel = Products(sequelize,DataTypes);
+let productModel = products(sequelize,DataTypes);
 let productCollect = new Collection(productModel);
 
 module.exports = {

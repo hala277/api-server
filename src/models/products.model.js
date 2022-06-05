@@ -1,6 +1,6 @@
 'use strict';
 
-const Products = (sequelize , DataTypes) => sequelize.define('Items' ,{
+const Products = (Sequelize , DataTypes) => Sequelize.define('products' ,{
     category: {
       type: DataTypes.STRING,
       allowNull: false,
